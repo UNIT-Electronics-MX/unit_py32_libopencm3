@@ -1,8 +1,11 @@
 # Grabar firmware en el PY32F003
 
-[← PyOCD y programador](PYOCD.md) · **Paso 4 de 4** · [Volver al inicio](../README.md)
+[← PyOCD y programador](PYOCD.md) · **Ruta de práctica: paso 4 de 4** · [Volver al inicio](../README.md)
 
-**Flashear** significa escribir en la memoria del PY32F003 un firmware que [ya compilaste](COMPILACION.md). Aquí usaremos **PyOCD** y el CH552 en modo CMSIS-DAP. Si no sabes qué hace cada pieza, lee primero [PyOCD y programador](PYOCD.md#qué-es-pyocd).
+**Flashear** significa escribir en la memoria del PY32F003 un firmware que [ya compilaste](COMPILACION.md). Aquí usarás **PyOCD** y el CH552 en modo CMSIS-DAP para cargar Blink o UART en una placa de práctica. La [guía de PyOCD](PYOCD.md#qué-es-pyocd) explica qué hace cada pieza.
+
+> [!IMPORTANT]
+> Estos comandos **reemplazan el firmware existente** en la placa. Si vas a examinar el programa que ya contiene, comienza por la [guía de lectura](LECTURA.md) y sigue las indicaciones del taller antes de grabar un ejemplo.
 
 ## Antes de grabar
 
@@ -19,7 +22,7 @@ pyocd list
 ```
 
 > [!IMPORTANT]
-> El archivo de esta página se graba en el **PY32F003**. `unit_ch55x_sdk/.../build/main.bin` es firmware para el **CH552** y pertenece a la preparación opcional de la sonda.
+> El archivo de esta página se graba en el **PY32F003**. `unit_ch55x_sdk/.../build/main.bin` es firmware para el **CH552** y se carga como indica la [guía de CMSIS-DAP](CH552_CMSIS_DAP.md).
 
 ## Opción principal: PyOCD directo
 

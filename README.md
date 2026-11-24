@@ -1,25 +1,58 @@
 # Del header al dump
 
-### Hackeando embebidos con un programador de bolsillo
+### Taller práctico de auditoría de hardware embebido
 
 **BugCON Security Conference 2026** · Villa del Hardware de Electronic Cats<br>
 **Jueves 26 de noviembre de 2026 · 10:00** · Instructor: César Bautista · Apoyo: Adrián Rabadán
 
-En este taller crearás firmware para un **PY32F003** y lo grabarás mediante un **CH552 en modo CMSIS-DAP**. Los dos SDK están incluidos como submódulos de Git.
+En este taller examinarás una placa preparada para un reto de seguridad. Identificarás interfaces de acceso y usarás una sonda CH552 para intentar leer el programa guardado en el chip. Si la lectura está permitida, guardarás una copia en tu laptop y explorarás el comportamiento del dispositivo. Al terminar, conocerás controles que ayudan a proteger estas superficies antes de llevar un producto a producción.
 
-## Sigue este orden
+## Qué significa «dump»
 
-| Paso | Guía | Qué consigues | ¿Necesitas las placas? |
-| --- | --- | --- | --- |
-| **1** | [Instalación](installation.md) | Herramientas, repositorio y entorno Python listos | No |
-| **2** | [Compilación](docs/COMPILACION.md) | `blink.hex` o `uart.hex` creado en la laptop | No |
-| **3** | [PyOCD y programador](docs/PYOCD.md) | Entiendes PyOCD, compruebas el CH552 y conectas SWD | Sí, para la conexión |
-| **4** | [Flasheo](docs/FLASHEO.md) | Firmware grabado y ejecutándose en el PY32F003 | Sí |
+El **firmware** es el programa que ejecuta el chip. Un **dump** o **volcado** es un archivo con los datos que se pudieron leer de su memoria. Por ejemplo, `firmware-py32.bin` sería una copia de los bytes leídos de una placa PY32F003. Ese archivo no contiene el código C original ni comentarios: contiene datos en formato binario.
 
-**El flujo en una línea:** código C → CMake y compilador ARM → archivo `.hex` en la laptop → PyOCD → programador CH552 → memoria flash del PY32F003.
+| Acción | Dirección de los datos | Resultado |
+| --- | --- | --- |
+| Compilar | Código C en tu laptop → archivo `.hex` en tu laptop | Preparas un programa para grabarlo |
+| Flashear | Archivo `.hex` en tu laptop → memoria del chip | Escribes un programa en la placa |
+| Leer o extraer | Memoria del chip → archivo `.bin` en tu laptop | Guardas una copia de lo que se pudo leer |
 
-> [!NOTE]
-> **Compilar** crea archivos en tu computadora. **Flashear** escribe uno de esos archivos en el microcontrolador. **PyOCD** es el programa que habla con la sonda CH552 para hacer esa grabación. [Lee la explicación completa](docs/PYOCD.md#qué-es-pyocd).
+Si la protección de lectura está activada, la placa puede impedir que obtengas esa copia. Por eso comprobarás el acceso antes de intentar leer y **no flashearás la placa del reto antes de la extracción**: al flashear, reemplazarías su programa.
+
+## Qué harás durante el taller
+
+| Etapa | Tiempo | Tu actividad |
+| --- | --- | --- |
+| Descubrimiento | 0–15 min | Inspeccionarás la placa e identificarás interfaces y puntos de prueba |
+| Acceso | 15–35 min | Conectarás la sonda y comprobarás la comunicación con el dispositivo |
+| Extracción | 35–65 min | Intentarás leer la memoria del chip y guardarás una copia si el acceso lo permite |
+| Análisis | 65–80 min | Revisarás la copia y relacionarás lo que encuentres con el comportamiento de la placa |
+| Cierre | 80–90 min | Verás una demostración de protección de lectura y revisarás controles para producción |
+
+Trabajarás con las interfaces presentes en la placa del reto. Entre las superficies que podrás reconocer se encuentran UART, SPI y SWD/JTAG; las actividades prácticas se centrarán en las que utilice el montaje.
+
+## Antes de asistir
+
+- **Trae una laptop con Linux** (Debian, Ubuntu o Raspberry Pi OS de 64 bits), un puerto USB disponible y conocimientos básicos de terminal y C. Revisa los [requisitos completos](installation.md#requisitos).
+- **Prepara tu entorno** con la [guía de instalación](installation.md). Puedes completar ese paso sin las placas.
+- **Recibirás el kit en préstamo** durante la sesión: placa objetivo, sonda CH552 y cables. Devuélvelo al terminar.
+
+El taller es **gratuito**. El cupo es de **15 personas**, por orden de llegada y según la disponibilidad de kits.
+
+## Guías del repositorio
+
+Estas guías te ayudan a conocer las herramientas y practicar con firmware de ejemplo. El SDK PY32F003 incluido en el repositorio sirve para esos ejercicios; la placa del reto estará preparada para el taller.
+
+| Guía | Cuándo usarla |
+| --- | --- |
+| [Instalación](installation.md) | Antes del taller, para preparar tu laptop y descargar el código |
+| [Compilación](docs/COMPILACION.md) | Cuando quieras generar `blink.hex` o `uart.hex` en tu laptop |
+| [CH552 como CMSIS-DAP](docs/CH552_CMSIS_DAP.md) | Si necesitas grabar el firmware de la sonda antes de usar PyOCD |
+| [PyOCD y CH552](docs/PYOCD.md) | Para entender la sonda, verificarla y conectar las señales SWD |
+| [Lectura de memoria](docs/LECTURA.md) | Para entender qué es un dump y practicar cómo guardar una copia desde un PY32F003 |
+| [Flasheo](docs/FLASHEO.md) | Para cargar o restaurar un ejemplo en una placa de práctica, cuando se indique |
+
+Los comandos de flasheo sustituyen el firmware existente; durante el reto, sigue las instrucciones del taller antes de usarlos.
 
 ## Datos del taller
 
@@ -28,42 +61,22 @@ En este taller crearás firmware para un **PY32F003** y lo grabarás mediante un
 | **Evento** | [BugCON 2026](https://bugcon.org/), 26 y 27 de noviembre |
 | **Lugar** | Villa del Hardware de Electronic Cats |
 | **Horario** | Jueves 26 de noviembre, 10:00 |
-| **Cupo** | 15 personas, por orden de llegada |
+| **Duración** | 90 minutos |
 | **Nivel** | Intermedio |
-| **Trae** | Laptop con Linux: Debian, Ubuntu o Raspberry Pi OS de 64 bits ([requisitos](installation.md#requisitos)) |
+| **Costo** | Sin costo |
+| **Equipo** | UNIT te presta el kit durante la sesión |
 | **Patrocinan** | UNIT Electronics y LATE.AR |
 
-## Material
+## Contenido del repositorio
 
-| Material | Uso |
-| --- | --- |
-| [Tarjeta PY32F003L24D6TR UNIT DevLab](https://uelectronics.com/producto/tarjeta-de-desarrollo-py32f003l24d6tr-arm-32-bits-unit-devlab/) | Ejecuta Blink y los otros ejemplos |
-| [Programador multiprotocolo CH552 UNIT DevLab](https://uelectronics.com/producto/ch552-usb-modulo-programador-multiprotocolo-swd-jtag-updi-usbasp-unit-devlab/) | Sirve de sonda CMSIS-DAP para grabar el PY32F003 |
-| [Arnés Qwiic de 4 pines, pitch 1 mm](https://uelectronics.com/producto/arnes-qwiic-4-pines-pitch-1mm/) | Conecta `SWCLK`, `SWDIO`, `VCC` y `GND` entre las placas ([conexiones](docs/PYOCD.md#conectar-ch552-y-py32f003)) |
-
-Puedes terminar [instalación](installation.md) y [compilación](docs/COMPILACION.md) antes del taller, sin hardware.
-
-## Repositorio
-
-| Ruta | Contenido |
+| Ruta | Qué encontrarás |
 | --- | --- |
 | [`installation.md`](installation.md) | Preparación de la laptop y descarga del código |
-| [`docs/COMPILACION.md`](docs/COMPILACION.md) | Biblioteca, CMake, selección de ejemplo y archivos generados |
-| [`docs/PYOCD.md`](docs/PYOCD.md) | Qué es PyOCD, sonda CH552, firmware CMSIS-DAP y conexiones SWD |
-| [`docs/FLASHEO.md`](docs/FLASHEO.md) | Comandos para grabar Blink o UART en el PY32F003 |
-| [`py32f003_lib/`](https://github.com/Cesarbautista10/py32f003_lib) | SDK PY32F003, ejemplos y CMSIS-Pack local |
-| `py32f003_lib/libopencm3/` | [Adaptación de libopencm3 para PY32](https://github.com/Cesarbautista10/libopencm3) |
-| `unit_ch55x_sdk/` | [SDK CH55x de UNIT](https://github.com/UNIT-Electronics-MX/unit_ch55x_sdk) y firmware CMSIS-DAP |
-
-<details>
-<summary>Para mantenedores: actualizar los submódulos</summary>
-
-```bash
-git submodule update --remote --recursive
-git add py32f003_lib unit_ch55x_sdk
-git commit -m "Actualizar submódulos"
-```
-
-`py32f003_lib` fija su propia versión de `libopencm3`; para cambiarla, actualízala en el repositorio del SDK y después actualiza aquí `py32f003_lib`.
-
-</details>
+| [`docs/COMPILACION.md`](docs/COMPILACION.md) | Compilación de ejemplos con CMake |
+| [`docs/CH552_CMSIS_DAP.md`](docs/CH552_CMSIS_DAP.md) | Compilación y grabación de CMSIS-DAP en el CH552 |
+| [`docs/PYOCD.md`](docs/PYOCD.md) | Uso de PyOCD y conexión de la sonda CH552 |
+| [`docs/LECTURA.md`](docs/LECTURA.md) | Lectura de memoria y guardado de una copia binaria |
+| [`docs/FLASHEO.md`](docs/FLASHEO.md) | Grabación de ejemplos en una placa PY32F003 de práctica |
+| [`docs/DESCRIPCION_TALLER.md`](docs/DESCRIPCION_TALLER.md) | Descripción ampliada de lo que harás durante el taller |
+| [`py32f003_lib/`](https://github.com/Cesarbautista10/py32f003_lib) | SDK PY32F003 y ejemplos |
+| `unit_ch55x_sdk/` | [SDK CH55x de UNIT](https://github.com/UNIT-Electronics-MX/unit_ch55x_sdk) para el programador |

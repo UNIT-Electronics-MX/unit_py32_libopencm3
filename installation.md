@@ -1,8 +1,8 @@
 # Instalación del entorno
 
-[← Inicio](README.md) · **Paso 1 de 4** · [Siguiente: compilación →](docs/COMPILACION.md)
+[← Inicio](README.md) · **Ruta de práctica: paso 1 de 4** · [Si quieres continuar: compilación →](docs/COMPILACION.md)
 
-Aquí prepararás la **laptop**: herramientas del sistema, código del taller y entorno Python. Al terminar podrás compilar firmware; todavía no necesitas conectar las placas.
+Aquí prepararás tu **laptop**: instalarás las herramientas, descargarás el código y activarás un entorno Python. Podrás completar todo sin conectar las placas. [Consulta las actividades del taller](README.md#qué-harás-durante-el-taller).
 
 > [!IMPORTANT]
 > Descarga el repositorio y las dependencias antes del evento. La conexión a Internet en el lugar puede ser limitada.
@@ -20,7 +20,7 @@ Computadora con Linux basado en `apt`:
 > [!NOTE]
 > En Raspberry Pi usa la edición de 64 bits: la de 32 bits (`armhf`) no tiene paquetes precompilados de `cmsis-pack-manager`, una dependencia de PyOCD, y su instalación con `pip` intentaría compilarla.
 
-También necesitas acceso a `sudo`, Internet durante la instalación, al menos 5 GB libres, Python 3.9 o posterior y conocimientos básicos de terminal Linux y C. No se requiere un IDE. Para el día del taller, lleva un puerto USB disponible y el [material de la lista principal](README.md).
+También necesitas acceso a `sudo`, Internet durante la instalación, al menos 5 GB libres, Python 3.9 o posterior y conocimientos básicos de terminal Linux y C. No se requiere un IDE. El día del taller lleva tu laptop con un puerto USB disponible; recibirás el kit en préstamo durante la sesión.
 
 Comprueba tu sistema:
 
@@ -45,7 +45,7 @@ sudo apt install -y \
   file xxd
 ```
 
-El compilador ARM y CMake se usan en la [compilación](docs/COMPILACION.md). `libusb` y las herramientas Python sirven para [PyOCD y el programador](docs/PYOCD.md). OpenOCD se instala como herramienta adicional; **los comandos de grabación de esta guía usan PyOCD**.
+El compilador ARM y CMake se usan en la [compilación](docs/COMPILACION.md). `libusb` y las herramientas Python sirven para [preparar el CH552](docs/CH552_CMSIS_DAP.md) y [usar PyOCD](docs/PYOCD.md). OpenOCD se instala como herramienta adicional; los ejemplos de esta ruta se graban en el PY32F003 con PyOCD.
 
 Verifica las herramientas principales:
 
@@ -131,4 +131,4 @@ source .venv/bin/activate
 - [ ] `command -v pyocd` apunta a `.venv/bin/pyocd`.
 - [ ] `python -m pip check` termina correctamente.
 
-**Siguiente paso:** [compilar Blink o UART](docs/COMPILACION.md). En esa etapa se generan archivos en la laptop; la grabación en el chip llega después.
+**Si quieres practicar con los ejemplos del SDK**, sigue la [guía de compilación de Blink o UART](docs/COMPILACION.md). Esa guía genera archivos en tu laptop; la grabación en una placa de práctica es un paso posterior.

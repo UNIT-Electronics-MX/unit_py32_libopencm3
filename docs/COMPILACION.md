@@ -1,8 +1,8 @@
 # Compilar firmware para el PY32F003
 
-[← Instalación](../installation.md) · **Paso 2 de 4** · [Siguiente: PyOCD y programador →](PYOCD.md)
+[← Instalación](../installation.md) · **Ruta de práctica: paso 2 de 4** · [Siguiente: PyOCD y programador →](PYOCD.md)
 
-**Compilar** transforma el código C en archivos de firmware **en la laptop**. Este paso no necesita el CH552 ni la tarjeta PY32F003. La grabación del chip está en la [guía de flasheo](FLASHEO.md).
+Con esta guía convertirás código C en archivos de firmware **en tu laptop**. Podrás usar Blink o UART para practicar con una placa PY32F003. Durante el [taller de auditoría](../README.md#qué-harás-durante-el-taller) recibirás una placa preparada para el reto. Si después quieres cargar uno de estos ejemplos, sigue la [guía de flasheo](FLASHEO.md).
 
 > [!IMPORTANT]
 > Todos los comandos de esta página se ejecutan desde `~/bugcon2026/py32f003_lib`, la carpeta que contiene `CMakeLists.txt`. Usa `cd` como se muestra antes de compilar.
@@ -94,4 +94,4 @@ En ese caso, los archivos quedan directamente en `build/all/`. El SDK también a
 
 ## Siguiente paso
 
-Lee [qué es PyOCD y cómo preparar el CH552](PYOCD.md). La sonda se comprueba y conecta antes de grabar el `.hex` en el PY32F003.
+Si el CH552 aún no funciona como sonda, sigue la [guía para cargar CMSIS-DAP](CH552_CMSIS_DAP.md). Después, revisa [qué es PyOCD y cómo conectar la sonda](PYOCD.md) antes de grabar el `.hex` en el PY32F003.

@@ -1,0 +1,6 @@
+[submodule "py32f003_lib"]
+	path = py32f003_lib
+	url = https://github.com/Cesarbautista10/py32f003_lib.git
+[submodule "unit_ch55x_sdk"]
+	path = unit_ch55x_sdk
+	url = https://github.com/UNIT-Electronics-MX/unit_ch55x_sdk.git

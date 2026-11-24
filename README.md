@@ -37,7 +37,7 @@ Trabajarás con las interfaces presentes en la placa del reto. Entre las superfi
 - **Prepara tu entorno** con la [guía de instalación](installation.md). Puedes completar ese paso sin las placas.
 - **Recibirás el kit en préstamo** durante la sesión: placa objetivo, sonda CH552 y cables. Devuélvelo al terminar.
 
-El taller es **gratuito**. El cupo es de **15 personas**, por orden de llegada y según la disponibilidad de kits.
+El cupo es de **15 personas**, por orden de llegada y según la disponibilidad de kits.
 
 ## Guías del repositorio
 
@@ -63,7 +63,6 @@ Los comandos de flasheo sustituyen el firmware existente; durante el reto, sigue
 | **Horario** | Jueves 26 de noviembre, 10:00 |
 | **Duración** | 90 minutos |
 | **Nivel** | Intermedio |
-| **Costo** | Sin costo |
 | **Equipo** | UNIT te presta el kit durante la sesión |
 | **Patrocinan** | UNIT Electronics y LATE.AR |
 

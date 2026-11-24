@@ -22,6 +22,6 @@ Ese archivo se llama **dump** o **volcado**: es una copia de los datos que se pu
 
 ## Qué necesitas
 
-Trae una laptop con Linux y un puerto USB disponible. El taller es gratuito y UNIT te prestará durante la sesión la placa objetivo, la sonda CH552 y los cables. El cupo es de 15 personas, según la disponibilidad de kits; devolverás el equipo al terminar.
+Trae una laptop con Linux y un puerto USB disponible. UNIT te prestará durante la sesión la placa objetivo, la sonda CH552 y los cables. El cupo es de 15 personas, según la disponibilidad de kits; devolverás el equipo al terminar.
 
 Puedes [preparar la laptop](../installation.md) antes del evento. La instalación se completa sin las placas.

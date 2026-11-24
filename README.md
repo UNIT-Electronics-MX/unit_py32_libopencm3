@@ -8,7 +8,7 @@ Este repositorio reúne todo el código del taller como submódulos de Git: el S
 ## Descarga rápida
 
 ```bash
-git clone --recurse-submodules https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3-.git ~/bugcon2026
+git clone --recurse-submodules https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3.git ~/bugcon2026
 cd ~/bugcon2026
 git submodule status --recursive
 ```

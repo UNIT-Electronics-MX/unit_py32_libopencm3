@@ -50,7 +50,7 @@ Cada comando debe mostrar una versión y terminar sin error. OpenOCD se verifica
 
 ## 2. Descargar el repositorio del taller
 
-El [repositorio del taller](https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3-) reúne todo el código como submódulos de Git, así que un solo `git clone` deja todo listo:
+El [repositorio del taller](https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3) reúne todo el código como submódulos de Git, así que un solo `git clone` deja todo listo:
 
 | Ruta | Contenido |
 | --- | --- |
@@ -64,7 +64,7 @@ El [repositorio del taller](https://github.com/UNIT-Electronics-MX/unit_py32_lib
 Clona directamente en `~/bugcon2026`; la carpeta no debe existir o debe estar vacía:
 
 ```bash
-git clone --recurse-submodules https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3-.git ~/bugcon2026
+git clone --recurse-submodules https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3.git ~/bugcon2026
 cd ~/bugcon2026
 ```
 
@@ -315,7 +315,7 @@ Si falla algún paso, conserva el mensaje de error completo y el comando ejecuta
 
 ## Referencias
 
-- [Repositorio del taller](https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3-)
+- [Repositorio del taller](https://github.com/UNIT-Electronics-MX/unit_py32_libopencm3)
 - [SDK PY32F003 y guía de compilación](https://github.com/Cesarbautista10/py32f003_lib)
 - [Documentación de instalación de PyOCD](https://pyocd.io/docs/installing.html)
 - [Soporte de dispositivos y CMSIS-Packs de PyOCD](https://pyocd.io/docs/target_support.html)

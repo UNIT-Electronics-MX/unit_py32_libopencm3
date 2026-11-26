@@ -1,6 +1,6 @@
 # Grabar firmware en el PY32F003
 
-[← PyOCD y programador](PYOCD.md) · **Ruta de práctica: paso 4 de 4** · [Volver al inicio](../README.md)
+[← Anterior: lectura de memoria](LECTURA.md) · **Ruta guiada: paso 7 de 7** · [Finalizar: volver al inicio →](../README.md)
 
 **Flashear** significa escribir en la memoria del PY32F003 un firmware que [ya compilaste](COMPILACION.md). Aquí usarás **PyOCD** y el CH552 en modo CMSIS-DAP para cargar Blink o UART en una placa de práctica. La [guía de PyOCD](PYOCD.md#qué-es-pyocd) explica qué hace cada pieza.
 

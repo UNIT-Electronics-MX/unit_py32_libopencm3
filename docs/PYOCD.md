@@ -1,6 +1,6 @@
 # PyOCD y programador CH552
 
-[← Compilación](COMPILACION.md) · **Ruta de práctica: paso 3 de 4** · [Siguiente: flasheo →](FLASHEO.md)
+[← Anterior: preparar el CH552](CH552_CMSIS_DAP.md) · **Ruta guiada: paso 4 de 7** · [Siguiente: preparar el reto →](RETO_FIRMWARE.md)
 
 Aquí conocerás PyOCD, comprobarás que tu CH552 funcione como sonda CMSIS-DAP y aprenderás a conectarlo a una placa PY32F003 de práctica. Si el CH552 todavía necesita el firmware CMSIS-DAP, sigue la [guía para grabarlo](CH552_CMSIS_DAP.md). Si vas a cargar un ejemplo en el PY32F003, [compílalo primero](COMPILACION.md).
 
@@ -64,4 +64,4 @@ Conecta la sonda al USB y ejecuta `pyocd list`. Este comando confirma que PyOCD 
 
 ## Siguiente paso
 
-Si vas a trabajar con una placa que ya contiene el programa del reto, comienza por [leer su memoria](LECTURA.md) siguiendo las indicaciones del taller. Si vas a cargar un ejemplo en una placa de práctica, [graba el firmware en el PY32F003](FLASHEO.md).
+Si eres instructor y vas a preparar la placa, continúa con el [firmware didáctico del reto](RETO_FIRMWARE.md). Si la placa ya contiene el programa del reto, salta directamente a [leer su memoria](LECTURA.md). Para cargar Blink o UART en otra placa de práctica, consulta [flasheo](FLASHEO.md).

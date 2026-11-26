@@ -41,15 +41,16 @@ El cupo es de **15 personas**, por orden de llegada y según la disponibilidad d
 
 ## Guías del repositorio
 
-Estas guías te ayudan a conocer las herramientas y practicar con firmware de ejemplo. El SDK PY32F003 incluido en el repositorio sirve para esos ejercicios; la placa del reto estará preparada para el taller.
+Estas guías forman una ruta de siete pasos para conocer las herramientas y practicar con firmware de ejemplo. Si el CH552 ya aparece en `pyocd list`, puedes omitir su preparación; si la placa del reto ya está preparada por el instructor, puedes pasar de PyOCD directamente a lectura.
 
 | Guía | Cuándo usarla |
 | --- | --- |
 | [Instalación](installation.md) | Antes del taller, para preparar tu laptop y descargar el código |
-| [Compilación](docs/COMPILACION.md) | Cuando quieras generar `blink.hex` o `uart.hex` en tu laptop |
+| [Compilación](docs/COMPILACION.md) | Cuando quieras generar Blink, UART o el firmware didáctico `reto_dump` |
 | [CH552 como CMSIS-DAP](docs/CH552_CMSIS_DAP.md) | Si necesitas grabar el firmware de la sonda antes de usar PyOCD |
 | [PyOCD y CH552](docs/PYOCD.md) | Para entender la sonda, verificarla y conectar las señales SWD |
-| [Lectura de memoria](docs/LECTURA.md) | Para entender qué es un dump y practicar cómo guardar una copia desde un PY32F003 |
+| [Firmware del reto](docs/RETO_FIRMWARE.md) | Para preparar una placa con pistas de análisis y practicar el desensamblado del dump |
+| [Lectura de memoria](docs/LECTURA.md) | Para usar `pyocd commander`, extraer dos copias y verificar que sean idénticas |
 | [Flasheo](docs/FLASHEO.md) | Para cargar o restaurar un ejemplo en una placa de práctica, cuando se indique |
 
 Los comandos de flasheo sustituyen el firmware existente; durante el reto, sigue las instrucciones del taller antes de usarlos.
@@ -74,6 +75,7 @@ Los comandos de flasheo sustituyen el firmware existente; durante el reto, sigue
 | [`docs/COMPILACION.md`](docs/COMPILACION.md) | Compilación de ejemplos con CMake |
 | [`docs/CH552_CMSIS_DAP.md`](docs/CH552_CMSIS_DAP.md) | Compilación y grabación de CMSIS-DAP en el CH552 |
 | [`docs/PYOCD.md`](docs/PYOCD.md) | Uso de PyOCD y conexión de la sonda CH552 |
+| [`docs/RETO_FIRMWARE.md`](docs/RETO_FIRMWARE.md) | Preparación y análisis del firmware didáctico `reto_dump` |
 | [`docs/LECTURA.md`](docs/LECTURA.md) | Lectura de memoria y guardado de una copia binaria |
 | [`docs/FLASHEO.md`](docs/FLASHEO.md) | Grabación de ejemplos en una placa PY32F003 de práctica |
 | [`docs/DESCRIPCION_TALLER.md`](docs/DESCRIPCION_TALLER.md) | Descripción ampliada de lo que harás durante el taller |

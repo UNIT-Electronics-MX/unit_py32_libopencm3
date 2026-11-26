@@ -1,6 +1,6 @@
 # Instalación del entorno
 
-[← Inicio](README.md) · **Ruta de práctica: paso 1 de 4** · [Si quieres continuar: compilación →](docs/COMPILACION.md)
+[← Anterior: inicio](README.md) · **Ruta guiada: paso 1 de 7** · [Siguiente: compilación →](docs/COMPILACION.md)
 
 Aquí prepararás tu **laptop**: instalarás las herramientas, descargarás el código y activarás un entorno Python. Podrás completar todo sin conectar las placas. [Consulta las actividades del taller](README.md#qué-harás-durante-el-taller).
 

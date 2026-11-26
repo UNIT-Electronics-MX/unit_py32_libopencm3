@@ -1,6 +1,6 @@
 # Cargar CMSIS-DAP en el CH552
 
-[← Instalación](../installation.md) · [Volver al inicio](../README.md) · [Siguiente: PyOCD y conexión SWD →](PYOCD.md)
+[← Anterior: compilación](COMPILACION.md) · **Ruta guiada: paso 3 de 7** · [Siguiente: PyOCD y conexión SWD →](PYOCD.md)
 
 El **CH552** es la sonda USB que conectarás a la laptop. Para que PyOCD pueda usarlo, debe ejecutar el firmware **CMSIS-DAP** del [SDK CH55x de UNIT](https://github.com/UNIT-Electronics-MX/unit_ch55x_sdk/tree/main/examples/usb/prog/cmsisdap). Esta guía muestra cómo compilar ese firmware y grabarlo **en el CH552**. El archivo resultante es `main.bin`; los ejemplos `blink.hex` y `uart.hex` de la [guía de compilación](COMPILACION.md) se destinan a la placa PY32F003.
 

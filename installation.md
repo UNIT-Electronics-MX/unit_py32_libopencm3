@@ -89,9 +89,10 @@ ls unit_ch55x_sdk/examples/usb/prog/cmsisdap/Makefile
 
 ```bash
 cd ~/bugcon2026
-git pull
+git pull --recurse-submodules
 git submodule sync --recursive
 git submodule update --init --recursive
+git submodule status --recursive
 ```
 
 ## 3. Preparar Python y PyOCD

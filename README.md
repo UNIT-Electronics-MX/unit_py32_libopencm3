@@ -55,6 +55,28 @@ Estas guías forman una ruta de siete pasos para conocer las herramientas y prac
 
 Los comandos de flasheo sustituyen el firmware existente; durante el reto, sigue las instrucciones del taller antes de usarlos.
 
+## Descargar y actualizar los submódulos
+
+Después de clonar el repositorio, o para recuperar un submódulo que falte, ejecuta desde `~/bugcon2026`:
+
+```bash
+git submodule sync --recursive
+git submodule update --init --recursive
+```
+
+Para actualizar el repositorio principal y dejar cada submódulo exactamente en la versión indicada por este proyecto:
+
+```bash
+cd ~/bugcon2026
+git pull --recurse-submodules
+git submodule sync --recursive
+git submodule update --init --recursive
+git submodule status --recursive
+```
+
+> [!NOTE]
+> `git submodule update --remote --recursive` avanza los submódulos a sus ramas remotas más recientes y modifica las referencias del proyecto principal. Úsalo solo si mantienes el repositorio y vas a validar y confirmar esas nuevas versiones.
+
 ## Datos del taller
 
 | | |
